@@ -1,0 +1,12 @@
+SELECT
+	V.VisitDate,
+	CASE WHEN Date() - DOB > 0 AND Date() - DOB <= 18 THEN '0-18' WHEN Date() - DOB >= 19 AND Date() - DOB <= 59 THEN '19-59' ELSE '60+' END AgeGroup,
+	COUNT(V.oid) HouseholdCount
+FROM
+	Visits V
+	INNER JOIN Recipients R ON V.RecipientID = R.oid
+WHERE
+	strftime('%Y%m%d', V.VisitDate) = '{0}'	
+GROUP BY
+	V.VisitDate,
+	AgeGroup;

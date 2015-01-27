@@ -1,0 +1,13 @@
+SELECT
+	V.VisitDate,
+	CASE WHEN R.AttendsCalvary = 1 THEN 'Yes' ELSE 'No' END Attends,
+	COUNT(V.oid) RecordCount
+FROM
+	Visits V
+	INNER JOIN Recipients R ON V.RecipientID = R.oid
+WHERE
+	R.ParentRecipientID IS NULL
+	AND strftime('%Y%m%d', V.VisitDate) = '{0}'
+GROUP BY
+	V.VisitDate,
+	Attends;

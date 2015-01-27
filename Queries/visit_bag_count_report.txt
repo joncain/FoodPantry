@@ -1,0 +1,13 @@
+SELECT
+	V.VisitDate,
+	CASE WHEN R.ParentRecipientID IS NULL THEN R.oid ELSE R.ParentRecipientID END ParentID,
+	COUNT(*) HouseholdCount,
+	CASE WHEN COUNT(*) >= 0 AND COUNT(*) <= 4 THEN 1 ELSE 2 END BagCount
+FROM
+	Visits V
+	INNER JOIN Recipients R ON V.RecipientID = R.oid
+WHERE
+	strftime('%Y%m%d', V.VisitDate) = '{0}'
+GROUP BY
+	V.VisitDate,
+	ParentID;
