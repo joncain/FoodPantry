@@ -76,7 +76,8 @@ namespace FoodPantryApp
                 {
                     maskedTextBoxZipcode.Text = _recipient.address.zipcode;
                 }
-                
+
+                buttonRecordVisit.Enabled = true;
             }
             catch (Exception e)
             {

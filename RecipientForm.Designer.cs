@@ -337,6 +337,7 @@
             // 
             // buttonRecordVisit
             // 
+            this.buttonRecordVisit.Enabled = false;
             this.buttonRecordVisit.Location = new System.Drawing.Point(223, 17);
             this.buttonRecordVisit.Name = "buttonRecordVisit";
             this.buttonRecordVisit.Size = new System.Drawing.Size(86, 23);
