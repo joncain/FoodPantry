@@ -57,6 +57,7 @@
             this.groupBoxVisits = new System.Windows.Forms.GroupBox();
             this.dataGridViewVisits = new System.Windows.Forms.DataGridView();
             this.groupBoxControls = new System.Windows.Forms.GroupBox();
+            this.buttonCancel = new System.Windows.Forms.Button();
             this.groupBoxRequired.SuspendLayout();
             this.groupBoxOptional.SuspendLayout();
             this.groupBoxDependents.SuspendLayout();
@@ -302,7 +303,7 @@
             // 
             // buttonSave
             // 
-            this.buttonSave.Location = new System.Drawing.Point(108, 17);
+            this.buttonSave.Location = new System.Drawing.Point(73, 17);
             this.buttonSave.Name = "buttonSave";
             this.buttonSave.Size = new System.Drawing.Size(86, 23);
             this.buttonSave.TabIndex = 14;
@@ -338,7 +339,7 @@
             // buttonRecordVisit
             // 
             this.buttonRecordVisit.Enabled = false;
-            this.buttonRecordVisit.Location = new System.Drawing.Point(223, 17);
+            this.buttonRecordVisit.Location = new System.Drawing.Point(165, 17);
             this.buttonRecordVisit.Name = "buttonRecordVisit";
             this.buttonRecordVisit.Size = new System.Drawing.Size(86, 23);
             this.buttonRecordVisit.TabIndex = 16;
@@ -376,6 +377,7 @@
             // 
             // groupBoxControls
             // 
+            this.groupBoxControls.Controls.Add(this.buttonCancel);
             this.groupBoxControls.Controls.Add(this.buttonRecordVisit);
             this.groupBoxControls.Controls.Add(this.buttonSave);
             this.groupBoxControls.Dock = System.Windows.Forms.DockStyle.Top;
@@ -384,6 +386,17 @@
             this.groupBoxControls.Size = new System.Drawing.Size(416, 57);
             this.groupBoxControls.TabIndex = 17;
             this.groupBoxControls.TabStop = false;
+            // 
+            // buttonCancel
+            // 
+            this.buttonCancel.Location = new System.Drawing.Point(257, 17);
+            this.buttonCancel.Name = "buttonCancel";
+            this.buttonCancel.Size = new System.Drawing.Size(75, 23);
+            this.buttonCancel.TabIndex = 17;
+            this.buttonCancel.TabStop = false;
+            this.buttonCancel.Text = "&Cancel";
+            this.buttonCancel.UseVisualStyleBackColor = true;
+            this.buttonCancel.Click += new System.EventHandler(this.buttonCancel_Click);
             // 
             // RecipientForm
             // 
@@ -449,5 +462,6 @@
         private System.Windows.Forms.GroupBox groupBoxControls;
         private System.Windows.Forms.Label labelDOB;
         private System.Windows.Forms.MaskedTextBox maskedTextBoxDOB;
+        private System.Windows.Forms.Button buttonCancel;
     }
 }

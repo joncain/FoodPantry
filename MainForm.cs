@@ -92,26 +92,20 @@ namespace FoodPantryApp
             f.BringToFront();
         }
 
-        private void groupBoxSearch_Enter(object sender, EventArgs e)
-        {
-
-        }
-
-        private void splitContainer1_SplitterMoved(object sender, SplitterEventArgs e)
-        {
-
-        }
-
-        private void textBoxSearchText_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void buttonReports_Click(object sender, EventArgs e)
         {
             ReportForm f = new ReportForm();
             f.Show();
             f.BringToFront();
+        }
+
+        private void dataGridViewSearchResults_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                dataGridViewSearchResults_MouseDoubleClick(dataGridViewSearchResults, null);
+                e.Handled = true;
+            }
         }
 
     }

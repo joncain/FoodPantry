@@ -76,7 +76,7 @@
             this.buttonExport.Name = "buttonExport";
             this.buttonExport.Size = new System.Drawing.Size(75, 23);
             this.buttonExport.TabIndex = 1;
-            this.buttonExport.Text = "Export";
+            this.buttonExport.Text = "&Export";
             this.buttonExport.UseVisualStyleBackColor = true;
             this.buttonExport.Click += new System.EventHandler(this.buttonExport_Click);
             // 
@@ -98,7 +98,7 @@
             this.groupBoxControls.Controls.Add(this.buttonView);
             this.groupBoxControls.Controls.Add(this.buttonExport);
             this.groupBoxControls.Controls.Add(this.buttonCancel);
-            this.groupBoxControls.Location = new System.Drawing.Point(13, 680);
+            this.groupBoxControls.Location = new System.Drawing.Point(13, 663);
             this.groupBoxControls.Name = "groupBoxControls";
             this.groupBoxControls.Size = new System.Drawing.Size(689, 57);
             this.groupBoxControls.TabIndex = 3;
@@ -208,7 +208,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.ClientSize = new System.Drawing.Size(715, 747);
+            this.ClientSize = new System.Drawing.Size(715, 730);
             this.Controls.Add(this.groupBoxBagCount);
             this.Controls.Add(this.groupBoxHouseholdCountByAgeGroup);
             this.Controls.Add(this.groupBoxAttendsCalvary);

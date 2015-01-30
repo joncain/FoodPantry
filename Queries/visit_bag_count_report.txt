@@ -2,7 +2,7 @@ SELECT
 	V.VisitDate,
 	CASE WHEN R.ParentRecipientID IS NULL THEN R.oid ELSE R.ParentRecipientID END ParentID,
 	COUNT(*) HouseholdCount,
-	CASE WHEN COUNT(*) >= 0 AND COUNT(*) <= 4 THEN 1 ELSE 2 END BagCount
+	CASE WHEN COUNT(*) >= 0 AND COUNT(*) <= 5 THEN 1 ELSE 2 END BagCount
 FROM
 	Visits V
 	INNER JOIN Recipients R ON V.RecipientID = R.oid
