@@ -1,4 +1,6 @@
 /obj
+/Exports
+*.db
 *.config
 *.exe
 *.pdb
