@@ -22,18 +22,46 @@ namespace FoodPantryApp
             InitializeComponent();
         }
 
-        private void buttonCancel_Click(object sender, EventArgs e)
+        private void buttonExit_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
         private void buttonExport_Click(object sender, EventArgs e)
         {
-            SaveResult attendsCalvaryResult = exportDataTable(((DataSet)dataGridViewAttendsCalvary.DataSource).Tables[0], "AttendsCalvary");
-            SaveResult ageSummaryResult = exportDataTable(((DataSet)dataGridViewAgeSummary.DataSource).Tables[0], "AgeSummary");
-            SaveResult bagCountResult = exportDataTable(((DataSet)dataGridViewBagCount.DataSource).Tables[0], "BagCount");
+            try
+            {
+                SaveResult attendsCalvaryResult = exportDataTable(((DataSet)dataGridViewAttendsCalvary.DataSource).Tables[0], "AttendsCalvary");
 
-            buttonExport.Enabled = false;
+                if (!attendsCalvaryResult.success)
+                {
+                    throw new Exception(attendsCalvaryResult.message);
+                }
+                
+                SaveResult ageSummaryResult = exportDataTable(((DataSet)dataGridViewAgeSummary.DataSource).Tables[0], "AgeSummary");
+
+                if (!ageSummaryResult.success)
+                {
+                    throw new Exception(ageSummaryResult.message);
+                }
+                
+                SaveResult bagCountResult = exportDataTable(((DataSet)dataGridViewBagCount.DataSource).Tables[0], "BagCount");
+
+                if (!bagCountResult.success)
+                {
+                    throw new Exception(bagCountResult.message);
+                }
+
+                string dbBackupFileName = ConfigurationSettings.AppSettings["exportPath"] + string.Format("{0}_{1}_{2}_FoodPantry.db.backup", dateTimePickerReportDate.Value.Date.ToString("yyyy"), dateTimePickerReportDate.Value.Date.ToString("MM"), dateTimePickerReportDate.Value.Date.ToString("dd"));
+                File.Delete(dbBackupFileName);
+                File.Copy(ConfigurationSettings.AppSettings["dbPath"], dbBackupFileName);
+
+            }
+            catch(Exception ex)
+            {
+                log.Error(ex);
+            }
+
             MessageBox.Show(string.Format("Export saved to: {0}", ConfigurationSettings.AppSettings["exportPath"]), "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
@@ -146,8 +174,6 @@ namespace FoodPantryApp
                 string exportPath = ConfigurationSettings.AppSettings["exportPath"];
                 string fileName = string.Format("{0}_{1}_{2}_{3}.csv", dateTimePickerReportDate.Value.Date.ToString("yyyy"), dateTimePickerReportDate.Value.Date.ToString("MM"), dateTimePickerReportDate.Value.Date.ToString("dd"), reportName);
                 string exportDestinationPath = exportPath + fileName;
-
-                //TODO check for existing file?
 
                 StreamWriter sw = new StreamWriter(exportDestinationPath, false);
 

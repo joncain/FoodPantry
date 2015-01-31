@@ -31,7 +31,7 @@
             this.groupBoxReportDate = new System.Windows.Forms.GroupBox();
             this.dateTimePickerReportDate = new System.Windows.Forms.DateTimePicker();
             this.buttonExport = new System.Windows.Forms.Button();
-            this.buttonCancel = new System.Windows.Forms.Button();
+            this.buttonExit = new System.Windows.Forms.Button();
             this.groupBoxControls = new System.Windows.Forms.GroupBox();
             this.buttonView = new System.Windows.Forms.Button();
             this.groupBoxAttendsCalvary = new System.Windows.Forms.GroupBox();
@@ -76,20 +76,20 @@
             this.buttonExport.Name = "buttonExport";
             this.buttonExport.Size = new System.Drawing.Size(75, 23);
             this.buttonExport.TabIndex = 1;
-            this.buttonExport.Text = "&Export";
+            this.buttonExport.Text = "E&xport";
             this.buttonExport.UseVisualStyleBackColor = true;
             this.buttonExport.Click += new System.EventHandler(this.buttonExport_Click);
             // 
-            // buttonCancel
+            // buttonExit
             // 
-            this.buttonCancel.Location = new System.Drawing.Point(389, 19);
-            this.buttonCancel.Name = "buttonCancel";
-            this.buttonCancel.Size = new System.Drawing.Size(75, 23);
-            this.buttonCancel.TabIndex = 2;
-            this.buttonCancel.TabStop = false;
-            this.buttonCancel.Text = "&Cancel";
-            this.buttonCancel.UseVisualStyleBackColor = true;
-            this.buttonCancel.Click += new System.EventHandler(this.buttonCancel_Click);
+            this.buttonExit.Location = new System.Drawing.Point(389, 19);
+            this.buttonExit.Name = "buttonExit";
+            this.buttonExit.Size = new System.Drawing.Size(75, 23);
+            this.buttonExit.TabIndex = 2;
+            this.buttonExit.TabStop = false;
+            this.buttonExit.Text = "&Exit";
+            this.buttonExit.UseVisualStyleBackColor = true;
+            this.buttonExit.Click += new System.EventHandler(this.buttonExit_Click);
             // 
             // groupBoxControls
             // 
@@ -97,7 +97,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBoxControls.Controls.Add(this.buttonView);
             this.groupBoxControls.Controls.Add(this.buttonExport);
-            this.groupBoxControls.Controls.Add(this.buttonCancel);
+            this.groupBoxControls.Controls.Add(this.buttonExit);
             this.groupBoxControls.Location = new System.Drawing.Point(13, 663);
             this.groupBoxControls.Name = "groupBoxControls";
             this.groupBoxControls.Size = new System.Drawing.Size(689, 57);
@@ -237,7 +237,7 @@
         private System.Windows.Forms.GroupBox groupBoxReportDate;
         private System.Windows.Forms.DateTimePicker dateTimePickerReportDate;
         private System.Windows.Forms.Button buttonExport;
-        private System.Windows.Forms.Button buttonCancel;
+        private System.Windows.Forms.Button buttonExit;
         private System.Windows.Forms.GroupBox groupBoxControls;
         private System.Windows.Forms.GroupBox groupBoxAttendsCalvary;
         private System.Windows.Forms.DataGridView dataGridViewAttendsCalvary;

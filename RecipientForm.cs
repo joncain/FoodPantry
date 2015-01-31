@@ -25,14 +25,12 @@ namespace FoodPantryApp
             loadStates();
 
             _recipient = new Recipient(id);
+            loadData();
 
             if (_recipient.id > 0)
             {
-                loadData();
                 loadDependents();
                 loadVisits();
-
-                this.Text += " - " + _recipient.first + " " + _recipient.last;
             }
         }
 
@@ -42,6 +40,8 @@ namespace FoodPantryApp
             {
                 if (_recipient.id == 0)
                 {
+                    maskedTextBoxPhone.Text = "208";
+                    comboBoxState.SelectedValue = "ID";
                     return;
                 }
 
@@ -78,6 +78,8 @@ namespace FoodPantryApp
                 }
 
                 buttonRecordVisit.Enabled = true;
+
+                this.Text = _recipient.first + " " + _recipient.last;
             }
             catch (Exception e)
             {
@@ -177,8 +179,6 @@ namespace FoodPantryApp
                 {
                     throw new Exception(result.message);
                 }
-
-                
                 
                 if (_dependentsChanged)
                 {
@@ -210,6 +210,8 @@ namespace FoodPantryApp
                     _dependentsChanged = false;
                 }
 
+                _recipient.Get();
+                loadData();
                 loadDependents();
 
                 MessageBox.Show("Your changes have been saved", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -286,7 +288,7 @@ namespace FoodPantryApp
             }
         }
 
-        private void buttonCancel_Click(object sender, EventArgs e)
+        private void buttonExit_Click(object sender, EventArgs e)
         {
             this.Close();
         }

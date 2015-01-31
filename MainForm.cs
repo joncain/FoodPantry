@@ -57,7 +57,7 @@ namespace FoodPantryApp
 
         private void dataGridViewSearchResults_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-            int id = Convert.ToInt32(dataGridViewSearchResults.CurrentRow.Cells["RecipientID"].Value.ToString());
+            int id = getSelectedRecipientId();
             RecipientForm f = new RecipientForm(id);
             f.Show();
             f.BringToFront();
@@ -108,5 +108,43 @@ namespace FoodPantryApp
             }
         }
 
+        private void dataGridViewSearchResults_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if (e.Button == System.Windows.Forms.MouseButtons.Right)
+            {
+                dataGridViewSearchResults.ClearSelection();
+                dataGridViewSearchResults.Rows[e.RowIndex].Selected = true;
+                contextMenuSearchResults.Show(MousePosition);
+            }
+        }
+
+        private void recordVisitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Recipient recipient = new Recipient(getSelectedRecipientId());
+            SaveResult result = recipient.RecordVisit();
+
+            if (!result.success)
+            {
+                MessageBox.Show(result.message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                log.Error(result.message);
+                return;
+            }
+
+            MessageBox.Show("Visit Recorded", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);            
+        }
+
+        private int getSelectedRecipientId()
+        {
+            try
+            {
+                return Convert.ToInt32(dataGridViewSearchResults.SelectedRows[0].Cells["RecipientID"].Value.ToString());
+            }
+            catch (Exception e)
+            {
+                log.Error(e);
+            }
+
+            return 0;
+        }
     }
 }

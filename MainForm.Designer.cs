@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.dataGridViewSearchResults = new System.Windows.Forms.DataGridView();
             this.groupBoxSearch = new System.Windows.Forms.GroupBox();
             this.buttonReports = new System.Windows.Forms.Button();
@@ -35,6 +36,8 @@
             this.textBoxSearchText = new System.Windows.Forms.TextBox();
             this.dataGridViewRecentRecords = new System.Windows.Forms.DataGridView();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.contextMenuSearchResults = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.recordVisitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSearchResults)).BeginInit();
             this.groupBoxSearch.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewRecentRecords)).BeginInit();
@@ -42,6 +45,7 @@
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
+            this.contextMenuSearchResults.SuspendLayout();
             this.SuspendLayout();
             // 
             // dataGridViewSearchResults
@@ -64,6 +68,7 @@
             this.dataGridViewSearchResults.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewSearchResults.Size = new System.Drawing.Size(854, 653);
             this.dataGridViewSearchResults.TabIndex = 2;
+            this.dataGridViewSearchResults.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridViewSearchResults_CellMouseClick);
             this.dataGridViewSearchResults.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dataGridViewSearchResults_KeyDown);
             this.dataGridViewSearchResults.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.dataGridViewSearchResults_MouseDoubleClick);
             // 
@@ -155,6 +160,21 @@
             this.splitContainer1.TabIndex = 101;
             this.splitContainer1.TabStop = false;
             // 
+            // contextMenuSearchResults
+            // 
+            this.contextMenuSearchResults.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.recordVisitToolStripMenuItem});
+            this.contextMenuSearchResults.Name = "contextMenuSearchResults";
+            this.contextMenuSearchResults.Size = new System.Drawing.Size(153, 48);
+            this.contextMenuSearchResults.Text = "Options";
+            // 
+            // recordVisitToolStripMenuItem
+            // 
+            this.recordVisitToolStripMenuItem.Name = "recordVisitToolStripMenuItem";
+            this.recordVisitToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.recordVisitToolStripMenuItem.Text = "Record Visit";
+            this.recordVisitToolStripMenuItem.Click += new System.EventHandler(this.recordVisitToolStripMenuItem_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -175,6 +195,7 @@
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
+            this.contextMenuSearchResults.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -188,6 +209,8 @@
         private System.Windows.Forms.SplitContainer splitContainer1;
         private System.Windows.Forms.Button buttonCreateNewRecipient;
         private System.Windows.Forms.Button buttonReports;
+        private System.Windows.Forms.ContextMenuStrip contextMenuSearchResults;
+        private System.Windows.Forms.ToolStripMenuItem recordVisitToolStripMenuItem;
     }
 }
 
