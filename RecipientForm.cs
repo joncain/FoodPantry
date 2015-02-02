@@ -40,7 +40,6 @@ namespace FoodPantryApp
             {
                 if (_recipient.id == 0)
                 {
-                    maskedTextBoxPhone.Text = "208";
                     comboBoxState.SelectedValue = "ID";
                     return;
                 }
@@ -234,7 +233,7 @@ namespace FoodPantryApp
                 return;
             }
             loadVisits();
-            MessageBox.Show("Your changes have been saved", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show("Visit Recorded", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void dataGridViewDependents_UserAddedRow(object sender, DataGridViewRowEventArgs e)
