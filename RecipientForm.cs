@@ -40,6 +40,7 @@ namespace FoodPantryApp
             {
                 if (_recipient.id == 0)
                 {
+                    this.Text = "New Recipient";
                     comboBoxState.SelectedValue = "ID";
                     return;
                 }

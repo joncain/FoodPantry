@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RecipientForm));
             this.groupBoxRequired = new System.Windows.Forms.GroupBox();
             this.maskedTextBoxDOB = new System.Windows.Forms.MaskedTextBox();
             this.labelDOB = new System.Windows.Forms.Label();
@@ -410,11 +411,11 @@
             this.Controls.Add(this.groupBoxOptional);
             this.Controls.Add(this.groupBoxRequired);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "RecipientForm";
             this.Padding = new System.Windows.Forms.Padding(10);
-            this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.RecipientForm_FormClosing);
             this.groupBoxRequired.ResumeLayout(false);

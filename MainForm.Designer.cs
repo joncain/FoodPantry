@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.dataGridViewSearchResults = new System.Windows.Forms.DataGridView();
             this.groupBoxSearch = new System.Windows.Forms.GroupBox();
             this.buttonReports = new System.Windows.Forms.Button();
@@ -165,13 +166,13 @@
             this.contextMenuSearchResults.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.recordVisitToolStripMenuItem});
             this.contextMenuSearchResults.Name = "contextMenuSearchResults";
-            this.contextMenuSearchResults.Size = new System.Drawing.Size(153, 48);
+            this.contextMenuSearchResults.Size = new System.Drawing.Size(137, 26);
             this.contextMenuSearchResults.Text = "Options";
             // 
             // recordVisitToolStripMenuItem
             // 
             this.recordVisitToolStripMenuItem.Name = "recordVisitToolStripMenuItem";
-            this.recordVisitToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.recordVisitToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
             this.recordVisitToolStripMenuItem.Text = "Record Visit";
             this.recordVisitToolStripMenuItem.Click += new System.EventHandler(this.recordVisitToolStripMenuItem_Click);
             // 
@@ -183,6 +184,7 @@
             this.ClientSize = new System.Drawing.Size(1008, 730);
             this.Controls.Add(this.splitContainer1);
             this.Controls.Add(this.groupBoxSearch);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MainForm";
             this.Padding = new System.Windows.Forms.Padding(10);
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

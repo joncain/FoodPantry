@@ -32,6 +32,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>FoodPantryApp.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="FoodPantryLib">
       <HintPath>..\..\FoodPantryLib\FoodPantryLib\bin\Debug\FoodPantryLib.dll</HintPath>
@@ -107,6 +110,11 @@
     <None Include="App.config">
       <SubType>Designer</SubType>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="FoodPantry.ico" />
+    <Content Include="FoodPantryApp.ico" />
+    <Content Include="shopping-basket-icon2.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

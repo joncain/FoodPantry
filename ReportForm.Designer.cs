@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ReportForm));
             this.groupBoxReportDate = new System.Windows.Forms.GroupBox();
             this.dateTimePickerReportDate = new System.Windows.Forms.DateTimePicker();
             this.buttonExport = new System.Windows.Forms.Button();
@@ -214,6 +215,7 @@
             this.Controls.Add(this.groupBoxAttendsCalvary);
             this.Controls.Add(this.groupBoxControls);
             this.Controls.Add(this.groupBoxReportDate);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "ReportForm";
