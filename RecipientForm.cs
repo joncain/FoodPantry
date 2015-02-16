@@ -189,6 +189,14 @@ namespace FoodPantryApp
                             continue;
                         }
 
+                        SaveResult validationResult = validDependentInfo(r);
+
+                        if (!validationResult.success)
+                        {
+                            throw new Exception(validationResult.message);
+                        }
+
+
                         int dependentId = 0;
                         Int32.TryParse(r.Cells[0].Value.ToString(), out dependentId);
 
@@ -221,6 +229,37 @@ namespace FoodPantryApp
                 MessageBox.Show(ex.Message, "Error Saving", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 log.Error(ex);
             }
+        }
+
+        public SaveResult validDependentInfo(DataGridViewRow row)
+        {
+            SaveResult result = new SaveResult();
+
+            try
+            {
+                if (string.IsNullOrEmpty(row.Cells[1].Value.ToString()))
+                {
+                    throw new Exception("Invalid dependent first name");
+                }
+                if (string.IsNullOrEmpty(row.Cells[2].Value.ToString()))
+                {
+                    throw new Exception("Invalid dependent last name");
+                }
+
+                DateTime dob = new DateTime();
+
+                if (!DateTime.TryParse(row.Cells[3].Value.ToString(), out dob))
+                {
+                    throw new Exception("Invalid dependent birth date");
+                }
+            }
+            catch (Exception e)
+            {
+                result.success = false;
+                result.message = e.Message;
+            }
+
+            return result;
         }
 
         private void buttonRecordVisit_Click(object sender, EventArgs e)
