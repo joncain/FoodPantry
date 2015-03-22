@@ -78,6 +78,7 @@ namespace FoodPantryApp
                 }
 
                 buttonRecordVisit.Enabled = true;
+                buttonDelete.Enabled = true;
 
                 this.Text = _recipient.first + " " + _recipient.last;
             }
@@ -163,7 +164,7 @@ namespace FoodPantryApp
                     // Check for existing records with same name & DOB
                     //
                     ClassDb db = new ClassDb();
-                    if (db.Exec(string.Format("SELECT * FROM Recipients WHERE ParentRecipientID IS NULL AND lower(first||last||dob) = lower('{0}{1}{2}')", _recipient.first, _recipient.last, _recipient.dob.ToString("yyyy-MM-dd"))) && db.Results.Tables[0].Rows.Count > 0)
+                    if (db.Exec(string.Format("SELECT * FROM Recipients WHERE ParentRecipientID IS NULL AND lower(first||last||dob) = lower('{0}{1}{2}') AND Deleted IS NULL", _recipient.first, _recipient.last, _recipient.dob.ToString("yyyy-MM-dd"))) && db.Results.Tables[0].Rows.Count > 0)
                     {
                         if (MessageBox.Show("A recipient with the same name and birth date already exist. Are you sure you want to continue?", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == System.Windows.Forms.DialogResult.No)
                         {
@@ -330,6 +331,29 @@ namespace FoodPantryApp
         private void buttonExit_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void buttonDelete_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Are you sure you want to delete this record?", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == System.Windows.Forms.DialogResult.No)
+            {
+                return;
+            }
+            else
+            {
+                try
+                {
+                    _recipient.deleted = true;
+                    _recipient.Save();
+                    MessageBox.Show("Your changes have been saved", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    this.Close();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Error Saving", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    log.Error(ex);
+                }
+            }
         }
     }
 }

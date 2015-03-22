@@ -58,6 +58,7 @@
             this.groupBoxVisits = new System.Windows.Forms.GroupBox();
             this.dataGridViewVisits = new System.Windows.Forms.DataGridView();
             this.groupBoxControls = new System.Windows.Forms.GroupBox();
+            this.buttonDelete = new System.Windows.Forms.Button();
             this.buttonExit = new System.Windows.Forms.Button();
             this.groupBoxRequired.SuspendLayout();
             this.groupBoxOptional.SuspendLayout();
@@ -304,7 +305,7 @@
             // 
             // buttonSave
             // 
-            this.buttonSave.Location = new System.Drawing.Point(73, 17);
+            this.buttonSave.Location = new System.Drawing.Point(34, 17);
             this.buttonSave.Name = "buttonSave";
             this.buttonSave.Size = new System.Drawing.Size(86, 23);
             this.buttonSave.TabIndex = 14;
@@ -340,7 +341,7 @@
             // buttonRecordVisit
             // 
             this.buttonRecordVisit.Enabled = false;
-            this.buttonRecordVisit.Location = new System.Drawing.Point(165, 17);
+            this.buttonRecordVisit.Location = new System.Drawing.Point(216, 17);
             this.buttonRecordVisit.Name = "buttonRecordVisit";
             this.buttonRecordVisit.Size = new System.Drawing.Size(86, 23);
             this.buttonRecordVisit.TabIndex = 16;
@@ -378,6 +379,7 @@
             // 
             // groupBoxControls
             // 
+            this.groupBoxControls.Controls.Add(this.buttonDelete);
             this.groupBoxControls.Controls.Add(this.buttonExit);
             this.groupBoxControls.Controls.Add(this.buttonRecordVisit);
             this.groupBoxControls.Controls.Add(this.buttonSave);
@@ -388,9 +390,20 @@
             this.groupBoxControls.TabIndex = 17;
             this.groupBoxControls.TabStop = false;
             // 
+            // buttonDelete
+            // 
+            this.buttonDelete.Enabled = false;
+            this.buttonDelete.Location = new System.Drawing.Point(125, 17);
+            this.buttonDelete.Name = "buttonDelete";
+            this.buttonDelete.Size = new System.Drawing.Size(86, 23);
+            this.buttonDelete.TabIndex = 18;
+            this.buttonDelete.Text = "&Delete";
+            this.buttonDelete.UseVisualStyleBackColor = true;
+            this.buttonDelete.Click += new System.EventHandler(this.buttonDelete_Click);
+            // 
             // buttonExit
             // 
-            this.buttonExit.Location = new System.Drawing.Point(257, 17);
+            this.buttonExit.Location = new System.Drawing.Point(307, 17);
             this.buttonExit.Name = "buttonExit";
             this.buttonExit.Size = new System.Drawing.Size(75, 23);
             this.buttonExit.TabIndex = 17;
@@ -463,5 +476,6 @@
         private System.Windows.Forms.Label labelDOB;
         private System.Windows.Forms.MaskedTextBox maskedTextBoxDOB;
         private System.Windows.Forms.Button buttonExit;
+        private System.Windows.Forms.Button buttonDelete;
     }
 }
