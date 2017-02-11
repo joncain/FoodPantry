@@ -6,7 +6,7 @@ FROM
 	Visits V
 	INNER JOIN Recipients R ON V.RecipientID = R.oid
 WHERE
-	strftime('%Y%m%d', V.VisitDate) = '{0}'	
+	strftime('%Y-%m-%d', V.VisitDate) = '{0}'	
 GROUP BY
 	V.VisitDate,
 	AgeGroup;

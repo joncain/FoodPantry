@@ -1,0 +1,13 @@
+SELECT
+	V.RecipientID ParentID,
+	1 HouseholdCount,
+	COUNT(*) Visits
+FROM
+	Visits V
+	INNER JOIN Recipients R ON V.RecipientID = R.oid
+WHERE
+	strftime('%Y-%m', VisitDate) = strftime('%Y-%m', '{0}')
+	AND ParentRecipientID IS NULL
+GROUP BY
+	V.RecipientID
+HAVING COUNT(*) > 1;

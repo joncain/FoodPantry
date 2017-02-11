@@ -41,6 +41,8 @@
             this.dataGridViewAgeSummary = new System.Windows.Forms.DataGridView();
             this.groupBoxHouseholdCountByAgeGroup = new System.Windows.Forms.GroupBox();
             this.groupBoxBagCount = new System.Windows.Forms.GroupBox();
+            this.groupBoxVisitCount = new System.Windows.Forms.GroupBox();
+            this.dataGridViewVisitCount = new System.Windows.Forms.DataGridView();
             this.groupBoxReportDate.SuspendLayout();
             this.groupBoxControls.SuspendLayout();
             this.groupBoxAttendsCalvary.SuspendLayout();
@@ -49,6 +51,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewAgeSummary)).BeginInit();
             this.groupBoxHouseholdCountByAgeGroup.SuspendLayout();
             this.groupBoxBagCount.SuspendLayout();
+            this.groupBoxVisitCount.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewVisitCount)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBoxReportDate
@@ -99,7 +103,7 @@
             this.groupBoxControls.Controls.Add(this.buttonView);
             this.groupBoxControls.Controls.Add(this.buttonExport);
             this.groupBoxControls.Controls.Add(this.buttonExit);
-            this.groupBoxControls.Location = new System.Drawing.Point(13, 663);
+            this.groupBoxControls.Location = new System.Drawing.Point(13, 828);
             this.groupBoxControls.Name = "groupBoxControls";
             this.groupBoxControls.Size = new System.Drawing.Size(689, 57);
             this.groupBoxControls.TabIndex = 3;
@@ -155,11 +159,12 @@
             this.dataGridViewBagCount.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridViewBagCount.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewBagCount.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridViewBagCount.EnableHeadersVisualStyles = false;
             this.dataGridViewBagCount.Location = new System.Drawing.Point(3, 16);
             this.dataGridViewBagCount.Name = "dataGridViewBagCount";
             this.dataGridViewBagCount.ReadOnly = true;
             this.dataGridViewBagCount.RowHeadersVisible = false;
-            this.dataGridViewBagCount.Size = new System.Drawing.Size(689, 350);
+            this.dataGridViewBagCount.Size = new System.Drawing.Size(689, 246);
             this.dataGridViewBagCount.TabIndex = 2;
             this.dataGridViewBagCount.TabStop = false;
             // 
@@ -199,17 +204,47 @@
             this.groupBoxBagCount.Dock = System.Windows.Forms.DockStyle.Top;
             this.groupBoxBagCount.Location = new System.Drawing.Point(10, 305);
             this.groupBoxBagCount.Name = "groupBoxBagCount";
-            this.groupBoxBagCount.Size = new System.Drawing.Size(695, 369);
+            this.groupBoxBagCount.Size = new System.Drawing.Size(695, 265);
             this.groupBoxBagCount.TabIndex = 5;
             this.groupBoxBagCount.TabStop = false;
             this.groupBoxBagCount.Text = "Bag Count per House";
+            // 
+            // groupBoxVisitCount
+            // 
+            this.groupBoxVisitCount.Controls.Add(this.dataGridViewVisitCount);
+            this.groupBoxVisitCount.Dock = System.Windows.Forms.DockStyle.Top;
+            this.groupBoxVisitCount.Location = new System.Drawing.Point(10, 570);
+            this.groupBoxVisitCount.Name = "groupBoxVisitCount";
+            this.groupBoxVisitCount.Size = new System.Drawing.Size(695, 265);
+            this.groupBoxVisitCount.TabIndex = 6;
+            this.groupBoxVisitCount.TabStop = false;
+            this.groupBoxVisitCount.Text = "More Than One Visit in Given Month";
+            // 
+            // dataGridViewVisitCount
+            // 
+            this.dataGridViewVisitCount.AllowUserToAddRows = false;
+            this.dataGridViewVisitCount.AllowUserToDeleteRows = false;
+            this.dataGridViewVisitCount.AllowUserToResizeColumns = false;
+            this.dataGridViewVisitCount.AllowUserToResizeRows = false;
+            this.dataGridViewVisitCount.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridViewVisitCount.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewVisitCount.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridViewVisitCount.EnableHeadersVisualStyles = false;
+            this.dataGridViewVisitCount.Location = new System.Drawing.Point(3, 16);
+            this.dataGridViewVisitCount.Name = "dataGridViewVisitCount";
+            this.dataGridViewVisitCount.ReadOnly = true;
+            this.dataGridViewVisitCount.RowHeadersVisible = false;
+            this.dataGridViewVisitCount.Size = new System.Drawing.Size(689, 246);
+            this.dataGridViewVisitCount.TabIndex = 3;
+            this.dataGridViewVisitCount.TabStop = false;
             // 
             // ReportForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.ClientSize = new System.Drawing.Size(715, 730);
+            this.ClientSize = new System.Drawing.Size(715, 895);
+            this.Controls.Add(this.groupBoxVisitCount);
             this.Controls.Add(this.groupBoxBagCount);
             this.Controls.Add(this.groupBoxHouseholdCountByAgeGroup);
             this.Controls.Add(this.groupBoxAttendsCalvary);
@@ -230,6 +265,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewAgeSummary)).EndInit();
             this.groupBoxHouseholdCountByAgeGroup.ResumeLayout(false);
             this.groupBoxBagCount.ResumeLayout(false);
+            this.groupBoxVisitCount.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewVisitCount)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -248,5 +285,7 @@
         private System.Windows.Forms.DataGridView dataGridViewBagCount;
         private System.Windows.Forms.GroupBox groupBoxHouseholdCountByAgeGroup;
         private System.Windows.Forms.GroupBox groupBoxBagCount;
+        private System.Windows.Forms.GroupBox groupBoxVisitCount;
+        private System.Windows.Forms.DataGridView dataGridViewVisitCount;
     }
 }

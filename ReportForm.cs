@@ -109,7 +109,6 @@ namespace FoodPantryApp
             catch
             {
             }
-
            
             try
             {
@@ -132,6 +131,27 @@ namespace FoodPantryApp
             {
             }
 
+            try
+            {
+                DataSet visitCountRecords = getReport("visit_more_than_once_this_month_report");
+
+                if (visitCountRecords.Tables[0].Rows.Count > 0)
+                {
+                    visitCountRecords.Tables[0].Rows.Add(null, visitCountRecords.Tables[0].Rows.Count, visitCountRecords.Tables[0].Compute("SUM(Visits)", null));
+                }
+
+                dataGridViewVisitCount.DataSource = visitCountRecords;
+                dataGridViewVisitCount.DataMember = visitCountRecords.Tables[0].TableName;
+
+                foreach (DataGridViewColumn c in dataGridViewVisitCount.Columns)
+                {
+                    c.SortMode = DataGridViewColumnSortMode.NotSortable;
+                }
+            }
+            catch
+            {
+            }
+
             buttonExport.Enabled = true;
         }
 
@@ -145,7 +165,7 @@ namespace FoodPantryApp
 
                 ClassDb db = new ClassDb();
 
-                if (!db.Exec(string.Format(query, dateTimePickerReportDate.Value.Date.ToString("yyyyMMdd"))))
+                if (!db.Exec(string.Format(query, dateTimePickerReportDate.Value.Date.ToString("yyyy-MM-dd"))))
                 {
                     throw new Exception(db.ErrorMessage);
                 }

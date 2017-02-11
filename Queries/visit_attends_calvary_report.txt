@@ -7,7 +7,7 @@ FROM
 	INNER JOIN Recipients R ON V.RecipientID = R.oid
 WHERE
 	R.ParentRecipientID IS NULL
-	AND strftime('%Y%m%d', V.VisitDate) = '{0}'
+	AND strftime('%Y-%m-%d', V.VisitDate) = '{0}'
 GROUP BY
 	V.VisitDate,
 	Attends;
