@@ -20,7 +20,7 @@ sqlite3 "../FoodPantry.db" ".read %step1%.txt"
 ECHO Verify output file
 
 IF NOT EXIST %step1%_output.txt (
-	ECHO ERROR! Output file %step1%_output.txt could not be verified - exiting
+	ECHO ERROR! Output file %step1%_output.txt could not be found - exiting
 	EXIT /B
 )
 
