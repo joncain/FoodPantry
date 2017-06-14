@@ -1,0 +1,4 @@
+.mode insert Recipients
+.out 1_backup_recipients_table_output.txt
+select oid as RecipientID,ParentRecipientID,Deleted,First,Last,DOB,Phone,Address1,Address2,City,State,Zipcode,IdVerified,AttendsCalvary from Recipients;
+.quit

@@ -1,0 +1,4 @@
+PRAGMA foreign_keys = OFF;
+DROP TABLE Recipients;
+PRAGMA foreign_keys = ON;
+.quit

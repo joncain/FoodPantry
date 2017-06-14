@@ -1,0 +1,4 @@
+PRAGMA foreign_keys = OFF;
+.read 2_extract_new_recipients_table_output.txt
+PRAGMA foreign_keys = ON;
+.quit
